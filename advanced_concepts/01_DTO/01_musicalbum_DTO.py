@@ -1,4 +1,4 @@
-""" MusicAlbum -> title, artist, year, tracks """
+""" MusicAlbum -> title, artist, year, tracks : a musical album DTO as vanilla Python class. """
 
 class MusicAlbum:
 
