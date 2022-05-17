@@ -26,7 +26,7 @@ if __name__ == "__main__":
         "last_name": "Doe",
         "email": "john@company.com",
         "mobile": 12345,
-        "reports_to": ["Boss Baby"]
+        "reports_to": "Boss Baby"
     }
     print(employee == employee2)
     print(employee)
