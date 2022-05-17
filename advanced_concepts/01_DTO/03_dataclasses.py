@@ -1,23 +1,14 @@
-""" MusicAlbum -> title, artist, year, tracks : adding annotations into the mix! """
+""" MusicAlbum -> title, artist, year, tracks :using @dataclass """
 
-from __future__ import annotations
-from typing import List, Optional
+from dataclasses import dataclass
+from typing import List
 
+@dataclass
 class MusicAlbum:
-
-    def __init__(self, title: str, artist: str, year: int, songs: Optional[List[str]] = None) -> None:
-        self.title = title
-        self.artist = artist
-        self.year = year
-        self.songs = songs
-    
-    def __str__(self) -> str:
-        return f"MusicAlbum: {self.title} by {self.artist} ({self.year})"
-    
-    def __eq__(self, other: MusicAlbum) -> bool:
-        if self.title == other.title and self.artist == other.artist and self.year == other.year:
-            return True
-        return False     
+    title: str
+    artist: str
+    year: int
+    tracks: List[str]
 
 if __name__ == "__main__":
     album = MusicAlbum("The Dark Side of the Moon", "Pink Floyd", 1973, ["Speak to Me", "Breathe", "One More Time"])
