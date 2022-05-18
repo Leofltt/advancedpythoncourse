@@ -6,6 +6,12 @@ from pydantic import BaseModel, validator
 
 CURRENT_YEAR = 2022
 
+class YearOutOfRange(Exception):
+    
+    def __init__(self, year: int, message: str) -> None:
+        self.year = year
+        self.message = message
+
 class MusicAlbum(BaseModel):
     title: str
     artist: str
@@ -22,7 +28,7 @@ class MusicAlbum(BaseModel):
     def check_year_is_valid(cls, value: int) -> None:
         supported_years = range(1900, CURRENT_YEAR)
         if not value in supported_years:
-            raise ValueError("Year must be less than or equal to current year and greater than or equal to 1900")
+            raise YearOutOfRange(value, f"Year {value} is out of range")
         return value
 
 if __name__ == "__main__":

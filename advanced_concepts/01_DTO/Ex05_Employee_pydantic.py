@@ -5,6 +5,12 @@ from typing import Union, Optional, List, Dict, Any
 
 from pydantic import BaseModel, validator
 
+class EmailError(Exception):
+    
+    def __init__(self, email: str, message: str) -> None:
+        self.email = email
+        self.message = message
+
 class Employee(BaseModel):
     first_name: str
     last_name: str
@@ -24,7 +30,7 @@ class Employee(BaseModel):
         surname = values.get('last_name')
         email_address = (name[0] + surname + "@company.com").lower()
         if value != email_address:
-            raise ValueError(f"Email {value} must be {email_address}")
+            raise EmailError(value, f"Email address {value} is not valid and should be {email_address}")
         return value
 
 if __name__ == "__main__":
