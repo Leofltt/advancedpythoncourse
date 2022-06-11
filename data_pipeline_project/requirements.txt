@@ -1,3 +1,5 @@
 pydantic
 joblib
 pyyaml
+pytest
+pytest-mock

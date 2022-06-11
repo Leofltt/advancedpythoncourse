@@ -15,7 +15,7 @@ class Product(BaseModel):
     def validate_currency(cls, v: str, values: dict) -> str:
         """Validates that the currency is supported"""
         if v not in SUPPORTED_CURRENCIES:
-            raise CurrencyError(f"{v} is not a supported currency")
+            raise CurrencyError(v,f"{v} is not a supported currency")
         return v
     
     def to_tuple(self) -> Tuple[str, float, str]:

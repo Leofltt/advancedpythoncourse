@@ -64,7 +64,7 @@ def create_file_paths_from_dir(directory: Path) -> List[Path]:
 
 
 def generate_dummy_product_files(directory: Path, number_files: int) -> None:
-    serializer = JsonSerializer()
+    serializer = JSON_Serializer()
     for i in range(number_files):
         data = {
             "name": f"product_{i+1}",
